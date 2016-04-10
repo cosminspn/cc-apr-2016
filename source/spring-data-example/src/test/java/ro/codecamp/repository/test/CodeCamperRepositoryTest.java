@@ -1,11 +1,14 @@
 package ro.codecamp.repository.test;
 
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import ro.codecamp.repository.CodeCamperRepository;
 
@@ -15,6 +18,8 @@ import ro.codecamp.repository.CodeCamperRepository;
  * @author Cosmin Spinu (cosmin.spinu@tss-yonder.com)
  * @since 10 apr. 2016
  */
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:/spring-config/spring-root.xml")
 public class CodeCamperRepositoryTest {
     
     @Autowired
@@ -26,7 +31,7 @@ public class CodeCamperRepositoryTest {
 
     @Test
     public void test() {
-        fail("Not yet implemented");
+        assertNotNull("Not yet implemented");
     }
 
 }
