@@ -46,6 +46,21 @@ public class CodeCamper extends BaseEntity {
     @Column(name = "main_technology")
     private String mainTechnology;
 
+    public CodeCamper() {
+        super();
+    }
+
+    public CodeCamper(String firstName, String lastName, String email, Date birthDate, Date registrationDate, Boolean isConfirmed, String mainTechnology) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.registrationDate = registrationDate;
+        this.isConfirmed = isConfirmed;
+        this.mainTechnology = mainTechnology;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -196,7 +211,8 @@ public class CodeCamper extends BaseEntity {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("CodeCamper [firstName=").append(firstName).append(", lastName=").append(lastName).append(", email=").append(email).append(", birthDate=").append(birthDate)
-                .append(", registrationDate=").append(registrationDate).append(", isConfirmed=").append(isConfirmed).append(", mainTechnology=").append(mainTechnology).append("]");
+                .append(", registrationDate=").append(registrationDate).append(", isConfirmed=").append(isConfirmed).append(", mainTechnology=").append(mainTechnology)
+                .append(", id=").append(getId()).append("]");
         return builder.toString();
     }
 }

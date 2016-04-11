@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,17 +38,18 @@ public class CodeCamperDAOImpl implements CodeCamperDAO {
      */
     @Override
     public CodeCamper create(CodeCamper codeCamper) {
-        return (CodeCamper) getCurrentSession().save(codeCamper);
+        getCurrentSession().save(codeCamper);
+        return codeCamper;
     }
 
     /*
      * (non-Javadoc)
      * @see ro.codecamp.dao.CodeCamperDAO#findAll()
      */
+    @SuppressWarnings("unchecked")
     @Override
     public List<CodeCamper> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+        return getCurrentSession().createCriteria(CodeCamper.class).list();
     }
 
     /*
@@ -56,8 +58,7 @@ public class CodeCamperDAOImpl implements CodeCamperDAO {
      */
     @Override
     public CodeCamper findById(long id) {
-        // TODO Auto-generated method stub
-        return null;
+        return getCurrentSession().get(CodeCamper.class, id);
     }
 
     /*
@@ -66,8 +67,8 @@ public class CodeCamperDAOImpl implements CodeCamperDAO {
      */
     @Override
     public CodeCamper update(CodeCamper codeCamper) {
-        // TODO Auto-generated method stub
-        return null;
+        getCurrentSession().saveOrUpdate(codeCamper);
+        return codeCamper;
     }
 
     /*
@@ -76,7 +77,23 @@ public class CodeCamperDAOImpl implements CodeCamperDAO {
      */
     @Override
     public CodeCamper delete(long id) {
-        // TODO Auto-generated method stub
-        return null;
+        CodeCamper toBeDeleted = getCurrentSession().get(CodeCamper.class, id);
+        getCurrentSession().delete(toBeDeleted);
+        return toBeDeleted;
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see ro.codecamp.dao.CodeCamperDAO#findByEmail(String)
+     */
+    @Override
+    public CodeCamper findByEmail(String email) {
+        return (CodeCamper) getCurrentSession().createCriteria(CodeCamper.class).add(Restrictions.eq("email", email)).uniqueResult();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<CodeCamper> getByIsConfirmedTrue() {
+        return getCurrentSession().createCriteria(CodeCamper.class).add(Restrictions.eq("isConfirmed", Boolean.TRUE)).list();
     }
 }
