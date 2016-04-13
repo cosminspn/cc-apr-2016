@@ -12,13 +12,6 @@ https://www.youtube.com/watch?v=PuEZ7OFyDis
 
 Articles:
 
-https://spring.io/blog/2011/02/10/getting-started-with-spring-data-jpa
 https://spring.io/blog/2011/04/26/advanced-spring-data-jpa-specifications-and-querydsl/
 http://www.petrikainulainen.net/spring-data-jpa-tutorial/
-http://www.springbyexample.org/examples/spring-data-jpa.html
-https://dzone.com/articles/easier-jpa-spring-data-jpa
-https://dzone.com/articles/persistence-layer-spring-data
 http://dontpanic.42.nl/2011/06/spring-data-jpa-with-querydsl.html
-https://jaxenter.com/top-3-jpa-productivity-boosters-for-java-ee-developers-spring-data-116126.html
-https://springframework.guru/spring-boot-web-application-part-3-spring-data-jpa/
-http://www.infoq.com/articles/spring-data-intro
