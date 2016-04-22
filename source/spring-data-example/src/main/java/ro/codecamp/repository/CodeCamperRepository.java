@@ -2,6 +2,8 @@ package ro.codecamp.repository;
 
 import java.util.List;
 
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+
 import ro.codecamp.core.EntityRepository;
 import ro.codecamp.entity.CodeCamper;
 
@@ -11,7 +13,7 @@ import ro.codecamp.entity.CodeCamper;
  * @author Cosmin Spinu (cosmin.spinu@tss-yonder.com)
  * @since 10 apr. 2016
  */
-public interface CodeCamperRepository extends EntityRepository<CodeCamper> {
+public interface CodeCamperRepository extends EntityRepository<CodeCamper>, QueryDslPredicateExecutor<CodeCamper> {
 
     /**
      * Find by e-mail.

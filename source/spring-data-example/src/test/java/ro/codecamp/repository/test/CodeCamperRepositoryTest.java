@@ -15,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import ro.codecamp.entity.CodeCamper;
+import ro.codecamp.predicate.CodeCamperPredicate;
 import ro.codecamp.repository.CodeCamperRepository;
 
 /**
@@ -69,6 +70,8 @@ public class CodeCamperRepositoryTest {
         List<CodeCamper> confirmed = codeCamperRepository.getByIsConfirmedTrue();
         Assert.assertTrue(confirmed.size() == 1);
         System.out.println("Confirmed codecampers:" + confirmed.toString());
+        
+        Iterable<CodeCamper> byFirstName = codeCamperRepository.findAll(CodeCamperPredicate.hasFirstName("Cosmin"));
         
         codeCamperRepository.delete(created1.getId());
         Assert.assertNull(codeCamperRepository.findById(created1.getId()));
